@@ -94,6 +94,7 @@ export default function EventDecorBooking() {
     <motion.div className="min-h-screen bg-[#0b0935] text-white">
       <div className="max-w-3xl mx-auto bg-[#1c1a48] backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-[#FFD700]">
         <div className="text-center mb-10">
+  <img src="/logo.png" alt="Golden Elephant Events Logo" className="mx-auto mb-4 w-32 h-32 rounded-full object-contain" />
           <h1 className="text-5xl font-extrabold text-white tracking-tight leading-tight">Golden Elephant Events</h1>
           <p className="text-lg text-white mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
         </div>
