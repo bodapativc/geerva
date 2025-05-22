@@ -13,7 +13,7 @@ const Calendar = ({ selected, onSelect, className }) => (
     className={`border border-gray-300 p-3 rounded-lg w-full font-semibold text-white bg-[#2c2b4f] focus:outline-none focus:ring-2 focus:ring-pink-400 ${className || ''}`}
   />
 );
-const Textarea = (props) => <textarea {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
+const Textarea = (props) => <textarea {...props} className={`text-black border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
 
 export default function EventDecorBooking() {
   const [date, setDate] = useState(new Date());
@@ -135,7 +135,6 @@ export default function EventDecorBooking() {
           <p className="text-white">For bookings and payment instructions, please contact us directly:</p>
           <p className="text-white font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
           <p className="text-white font-medium">Florida: (305) 555-5678</p>
-
         </div>
       </div>
     </motion.div>
