@@ -3,9 +3,16 @@ import { motion } from 'framer-motion';
 
 const Card = ({ children, className }) => <div className={`shadow-2xl rounded-3xl bg-white ${className}`}>{children}</div>;
 const CardContent = ({ children, className }) => <div className={`p-8 md:p-10 ${className}`}>{children}</div>;
-const Input = (props) => <input {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
+const Input = (props) => <input {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-100$1`} />;
 const Button = ({ children, ...props }) => <button {...props} className={`px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-lg font-semibold shadow-md transition-all w-full ${props.className || ''}`}>{children}</button>;
-const Calendar = ({ selected, onSelect, className }) => <input type='date' value={selected.toISOString().split('T')[0]} onChange={(e) => onSelect(new Date(e.target.value))} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${className}`} />;
+const Calendar = ({ selected, onSelect, className }) => (
+  <input
+    type="date"
+    value={selected.toISOString().split('T')[0]}
+    onChange={(e) => onSelect(new Date(e.target.value))}
+    className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-300 ${className || ''}`}
+  />
+);
 const Textarea = (props) => <textarea {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
 
 export default function EventDecorBooking() {
@@ -65,7 +72,6 @@ export default function EventDecorBooking() {
 
     const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}&sf=true&output=xml`;
 
-    // Send confirmation email
     await fetch("https://formspree.io/f/mvoebjbg", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
@@ -85,16 +91,16 @@ export default function EventDecorBooking() {
   const eventList = Object.keys(pricing);
 
   return (
-    <motion.div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-100 to-yellow-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white">
+    <motion.div className="min-h-screen bg-[#0b0935] text-white">
+      <div className="max-w-3xl mx-auto bg-[#1c1a48] backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-[#FFD700]">
         <div className="text-center mb-10">
-          <h1 className="text-5xl font-extrabold text-pink-600 tracking-tight leading-tight">Golden Elephant Events</h1>
-          <p className="text-lg text-gray-700 mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
+          <h1 className="text-5xl font-extrabold text-white tracking-tight leading-tight">Golden Elephant Events</h1>
+          <p className="text-lg text-white mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
         </div>
 
         <Card>
           <CardContent>
-            <h2 className="text-2xl font-bold text-rose-600 mb-6">Book Your Appointment</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Book Your Appointment</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} required />
@@ -102,7 +108,7 @@ export default function EventDecorBooking() {
               </div>
               <Input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <Input name="phone" type="tel" maxLength={10} placeholder="Phone Number (10 digits)" value={form.phone} onChange={handleChange} required />
-              <select name="eventType" value={form.eventType} onChange={handleChange} required className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
+              <select name="eventType" className="text-gray-300 w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
                 <option value="">Select Event Type</option>
                 {eventList.map((event, index) => (
                   <option key={index} value={event}>{event}</option>
@@ -117,24 +123,15 @@ export default function EventDecorBooking() {
         </Card>
 
         <div className="text-center space-y-3 mt-12">
-          <h3 className="text-xl font-semibold text-rose-500">Payment & Contact Information</h3>
-          <p className="text-gray-600">For bookings and payment instructions, please contact us directly:</p>
-          <p className="text-pink-700 font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
-          <p className="text-pink-700 font-medium">Florida: (305) 555-5678</p>
-          <p className="text-pink-600 mt-4">
+          <h3 className="text-xl font-semibold text-white">Payment & Contact Information</h3>
+          <p className="text-white">For bookings and payment instructions, please contact us directly:</p>
+          <p className="text-white font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
+          <p className="text-white font-medium">Florida: (305) 555-5678</p>
+          <p className="text-white mt-4">
             <a href="https://www.instagram.com/golden_elephant_events?igsh=MWE0Y3k3eGc5bHVnMA==" target="_blank" rel="noopener noreferrer" className="underline font-medium">
               Follow us on Instagram
             </a>
           </p>
-        </div>
-
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold text-center text-pink-600 mb-6">Our Work</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <img src="https://images.unsplash.com/photo-1604014237255-7caa46d4d82e?auto=format&fit=crop&w=500&q=80" alt="Event Decor 1" className="rounded-lg shadow-md" />
-            <img src="https://images.unsplash.com/photo-1607283094427-3a9e40d7818f?auto=format&fit=crop&w=500&q=80" alt="Event Decor 2" className="rounded-lg shadow-md" />
-            <img src="https://images.unsplash.com/photo-1618221069807-e21e556c8c06?auto=format&fit=crop&w=500&q=80" alt="Event Decor 3" className="rounded-lg shadow-md" />
-          </div>
         </div>
       </div>
     </motion.div>
