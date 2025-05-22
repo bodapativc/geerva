@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 
 const Card = ({ children, className }) => <div className={`shadow-2xl rounded-3xl bg-white ${className}`}>{children}</div>;
 const CardContent = ({ children, className }) => <div className={`p-8 md:p-10 ${className}`}>{children}</div>;
-const Input = (props) => <input {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-100$1`} />;
+const Input = (props) => <input {...props} className={`border border-gray-300 p-3 rounded-lg w-full font-semibold text-white bg-[#2c2b4f] focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
 const Button = ({ children, ...props }) => <button {...props} className={`px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-lg font-semibold shadow-md transition-all w-full ${props.className || ''}`}>{children}</button>;
 const Calendar = ({ selected, onSelect, className }) => (
   <input
     type="date"
     value={selected.toISOString().split('T')[0]}
     onChange={(e) => onSelect(new Date(e.target.value))}
-    className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-300 ${className || ''}`}
+    className={`border border-gray-300 p-3 rounded-lg w-full font-semibold text-white bg-[#2c2b4f] focus:outline-none focus:ring-2 focus:ring-pink-400 ${className || ''}`}
   />
 );
 const Textarea = (props) => <textarea {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
@@ -109,7 +109,7 @@ export default function EventDecorBooking() {
               </div>
               <Input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <Input name="phone" type="tel" maxLength={10} placeholder="Phone Number (10 digits)" value={form.phone} onChange={handleChange} required />
-              <select name="eventType" className="text-gray-300 w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
+              <select name="eventType" className="text-white font-semibold bg-[#2c2b4f] w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
                 <option value="">Select Event Type</option>
                 {eventList.map((event, index) => (
                   <option key={index} value={event}>{event}</option>
