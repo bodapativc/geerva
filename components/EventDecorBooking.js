@@ -102,8 +102,8 @@ export default function EventDecorBooking() {
 
 <div className="text-center mb-10">
   <img src="/logo.png" alt="Golden Elephant Events Logo" className="mx-auto mb-4 w-32 h-32 rounded-full object-contain" />
-          <h1 className="text-5xl font-extrabold text-white tracking-tight leading-tight">Golden Elephant Events</h1>
-          <p className="text-lg text-white mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
+          <h1 className="text-5xl font-extrabold tracking-tight leading-tight font-serif italic drop-shadow-lg bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 bg-clip-text text-transparent">Golden Elephant Events</h1>
+          <p className="text-sm text-white mt-3 italic font-medium tracking-wide">We specialize in Birthday decor, housewarming decor, Weddings Anniversary decor & more!</p>
         </div>
 
         <Card>
