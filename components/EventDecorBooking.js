@@ -91,9 +91,16 @@ export default function EventDecorBooking() {
   const eventList = Object.keys(pricing);
 
   return (
-    <motion.div className="min-h-screen bg-[#0b0935] text-white">
+    <motion.div className="min-h-screen bg-[#0b0935] text-white relative">
       <div className="max-w-3xl mx-auto bg-[#1c1a48] backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-[#FFD700]">
-        <div className="text-center mb-10">
+        <div className="absolute top-6 right-6">
+  <a href="https://www.instagram.com/golden_elephant_events?igsh=MWE0Y3k3eGc5bHVnMA==" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold rounded-full shadow-md transition-all">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.337 3.608 1.312.975.975 1.25 2.242 1.312 3.608.058 1.266.07 1.646.07 4.847s-.012 3.582-.07 4.847c-.062 1.366-.337 2.633-1.312 3.608-.975.975-2.242 1.25-3.608 1.312-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.337-3.608-1.312-.975-.975-1.25-2.242-1.312-3.608C2.175 15.582 2.163 15.202 2.163 12s.012-3.582.07-4.847c.062-1.366.337-2.633 1.312-3.608.975-.975 2.242-1.25 3.608-1.312 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.332.013 7.052.072 5.78.131 4.674.403 3.68 1.397 2.686 2.391 2.414 3.497 2.355 4.769.013 8.332 0 8.741 0 12s.013 3.668.072 4.948c.059 1.272.331 2.378 1.325 3.372.994.994 2.1 1.266 3.372 1.325C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.272-.059 2.378-.331 3.372-1.325.994-.994 1.266-2.1 1.325-3.372.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.059-1.272-.331-2.378-1.325-3.372C19.326.403 18.22.131 16.948.072 15.668.013 15.259 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/><circle cx="18.406" cy="5.595" r="1.44"/></svg>
+    Follow us on Instagram
+  </a>
+</div>
+
+<div className="text-center mb-10">
   <img src="/logo.png" alt="Golden Elephant Events Logo" className="mx-auto mb-4 w-32 h-32 rounded-full object-contain" />
           <h1 className="text-5xl font-extrabold text-white tracking-tight leading-tight">Golden Elephant Events</h1>
           <p className="text-lg text-white mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
@@ -128,11 +135,7 @@ export default function EventDecorBooking() {
           <p className="text-white">For bookings and payment instructions, please contact us directly:</p>
           <p className="text-white font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
           <p className="text-white font-medium">Florida: (305) 555-5678</p>
-          <p className="text-white mt-4">
-            <a href="https://www.instagram.com/golden_elephant_events?igsh=MWE0Y3k3eGc5bHVnMA==" target="_blank" rel="noopener noreferrer" className="underline font-medium">
-              Follow us on Instagram
-            </a>
-          </p>
+
         </div>
       </div>
     </motion.div>
