@@ -1,20 +1,26 @@
-# Golden Elephant Events
+# 🎉 Golden Elephant Events
 
-Beautifully designed Next.js app for booking event decor services.
+A beautiful and responsive booking site for event decorations – built with **Next.js**, **React**, **TailwindCSS**, and **Framer Motion**.
 
-## 🚀 Quick Start
+---
+
+## ✨ Features
+
+- 📅 Event Appointment Booking
+- 💸 Dynamic Pricing by Event Type
+- 📤 Google Calendar Integration
+- 🎨 Trendy UI with Tailwind & Animations
+- 📱 Mobile Responsive Design
+- ☎️ Region-Specific Contact Info
+
+---
+
+## 🛠 Setup Instructions
+
+### 1. Clone the Repository or Download
+
+If zipped, unzip the folder. If using GitHub:
 
 ```bash
-npm install
-npm run dev
-```
-
-## 🌐 Deploy to Vercel
-
-1. Push to GitHub
-2. Visit https://vercel.com/import
-3. Select your repo and deploy
-
-## 📞 Contact
-- Richmond & Northern Virginia: (804) 244-6947
-- Florida: (305) 555-5678
+git clone https://github.com/yourusername/golden-elephant-events.git
+cd golden-elephant-events
