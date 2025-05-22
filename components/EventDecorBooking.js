@@ -63,12 +63,7 @@ export default function EventDecorBooking() {
     <motion.div className="min-h-screen bg-gradient-to-br from-pink-100 via-rose-50 to-yellow-100 p-8 max-w-3xl mx-auto space-y-8">
       <div className="bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white">
         <div className="flex flex-col items-center space-y-3">
-          <img
-            src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/347645965_239697372079686_1870956674610927686_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Sy8yIBBiXKgQ7kNvwEq_zjY&_nc_oc=AdlvU9do6xd7sI1AT9HreG1rEypra8KJOVHDjtro2UW05IyM8DKwT6yZJoA062Yf4qI&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&_nc_gid=wx7o92Locm6KS_QCvV5q8A&oh=00_AfJ5JY7K-NNZ4CGZgomqTihlSDhHi9G_FqP29Bqo7c3T8w&oe=683442F4"
-            alt="Golden Elephant Logo"
-            className="w-10 h-10 object-cover rounded-full border-2 border-white shadow-sm"
-          />
-          <h1 className="text-4xl font-extrabold text-pink-600 text-center tracking-tight">Golden Elephant Events</h1>
+                    <h1 className="text-4xl font-extrabold text-pink-600 text-center tracking-tight">Golden Elephant Events</h1>
         </div>
         <p className="text-center text-gray-700 mt-2">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
 
