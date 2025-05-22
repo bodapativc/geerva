@@ -11,7 +11,8 @@ const Textarea = (props) => <textarea {...props} className={`border border-gray-
 export default function EventDecorBooking() {
   const [date, setDate] = useState(new Date());
   const [form, setForm] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     eventType: '',
@@ -39,11 +40,22 @@ export default function EventDecorBooking() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(form.phone)) {
+      alert("Phone number must be exactly 10 digits.");
+      return;
+    }
+
     const title = encodeURIComponent(`Event Booking: ${form.eventType}`);
-    const details = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nNotes: ${form.notes}`);
+    const details = encodeURIComponent(`Name: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nPhone: ${form.phone}\nNotes: ${form.notes}`);
     const location = encodeURIComponent("Golden Elephant Events Venue or Client Location");
     const start = new Date(date);
     const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
@@ -53,8 +65,21 @@ export default function EventDecorBooking() {
 
     const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startTime}/${endTime}&details=${details}&location=${location}&sf=true&output=xml`;
 
+    // Send confirmation email
+    await fetch("https://formspree.io/f/mvoebjbg", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        _replyto: form.email,
+        name: `${form.firstName} ${form.lastName}`,
+        phone: form.phone,
+        message: `Event: ${form.eventType}\nDate: ${date.toDateString()}\nNotes: ${form.notes}`,
+        to: "goldenjrva@gmail.com"
+      })
+    });
+
     window.open(calendarUrl, '_blank');
-    alert(`Appointment booked! Please scan the Zelle code to pay $${price}.`);
+    alert(`Appointment booked! Confirmation sent to Golden Elephant Events.`);
   };
 
   const eventList = Object.keys(pricing);
@@ -71,9 +96,12 @@ export default function EventDecorBooking() {
           <CardContent>
             <h2 className="text-2xl font-bold text-rose-600 mb-6">Book Your Appointment</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <Input name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} required />
+                <Input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} required />
+              </div>
               <Input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
-              <Input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} required />
+              <Input name="phone" type="tel" maxLength={10} placeholder="Phone Number (10 digits)" value={form.phone} onChange={handleChange} required />
               <select name="eventType" value={form.eventType} onChange={handleChange} required className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
                 <option value="">Select Event Type</option>
                 {eventList.map((event, index) => (
@@ -93,6 +121,11 @@ export default function EventDecorBooking() {
           <p className="text-gray-600">For bookings and payment instructions, please contact us directly:</p>
           <p className="text-pink-700 font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
           <p className="text-pink-700 font-medium">Florida: (305) 555-5678</p>
+          <p className="text-pink-600 mt-4">
+            <a href="https://www.instagram.com/golden_elephant_events?igsh=MWE0Y3k3eGc5bHVnMA==" target="_blank" rel="noopener noreferrer" className="underline font-medium">
+              Follow us on Instagram
+            </a>
+          </p>
         </div>
       </div>
     </motion.div>
