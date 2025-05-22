@@ -127,6 +127,15 @@ export default function EventDecorBooking() {
             </a>
           </p>
         </div>
+
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center text-pink-600 mb-6">Our Work</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <img src="https://images.unsplash.com/photo-1604014237255-7caa46d4d82e?auto=format&fit=crop&w=500&q=80" alt="Event Decor 1" className="rounded-lg shadow-md" />
+            <img src="https://images.unsplash.com/photo-1607283094427-3a9e40d7818f?auto=format&fit=crop&w=500&q=80" alt="Event Decor 2" className="rounded-lg shadow-md" />
+            <img src="https://images.unsplash.com/photo-1618221069807-e21e556c8c06?auto=format&fit=crop&w=500&q=80" alt="Event Decor 3" className="rounded-lg shadow-md" />
+          </div>
+        </div>
       </div>
     </motion.div>
   );
