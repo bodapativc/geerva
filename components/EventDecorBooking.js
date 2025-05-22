@@ -28,14 +28,14 @@ export default function EventDecorBooking() {
   const [price, setPrice] = useState(0);
 
   const pricing = {
-    "Birthday Parties": 550,
+    "Birthday decor": 550,
     "Half Saree Functions": 850,
-    "Wedding Anniversaries": 650,
-    "Baby Showers": 650,
-    "Corporate Events": 850,
-    "Graduation Celebrations": 650,
-    "Housewarmings": 750,
-    "Themed Parties": 650
+    "Wedding Anniversary decor": 650,
+    "Baby Shower": 650,
+    "Corporate Event": 850,
+    "Graduation": 650,
+    "Housewarming decor": 750,
+    "Themed Party": 650
   };
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function EventDecorBooking() {
               </div>
               <Input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <Input name="phone" type="tel" maxLength={10} placeholder="Phone Number (10 digits)" value={form.phone} onChange={handleChange} required />
-              <select name="eventType" className="text-white font-semibold bg-[#2c2b4f] w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
+              <select name="eventType" value={form.eventType} onChange={handleChange} className="text-white font-semibold bg-[#2c2b4f] w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
                 <option value="">Select Event Type</option>
                 {eventList.map((event, index) => (
                   <option key={index} value={event}>{event}</option>
