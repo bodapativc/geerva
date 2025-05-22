@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>Golden Elephant Events</title>
-        <meta name="description" content="Book your event with Golden Elephant Events" />
+        <meta name="description" content="Golden Elephant Event Decor Booking" />
       </Head>
       <main>
         <EventDecorBooking />

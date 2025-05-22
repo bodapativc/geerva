@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const Card = ({ children, className }) => <div className={`shadow rounded ${className}`}>{children}</div>;
-const CardContent = ({ children, className }) => <div className={className}>{children}</div>;
-const Input = (props) => <input {...props} className={`border p-2 rounded w-full ${props.className || ''}`} />;
-const Button = ({ children, ...props }) => <button {...props} className={`px-4 py-2 rounded bg-pink-600 hover:bg-pink-700 text-white text-lg w-full ${props.className || ''}`}>{children}</button>;
-const Calendar = ({ selected, onSelect, className }) => <input type='date' value={selected.toISOString().split('T')[0]} onChange={(e) => onSelect(new Date(e.target.value))} className={`border p-2 rounded w-full ${className}`} />;
-const Textarea = (props) => <textarea {...props} className={`border p-2 rounded w-full ${props.className || ''}`} />;
+const Card = ({ children, className }) => <div className={`shadow-2xl rounded-3xl bg-white ${className}`}>{children}</div>;
+const CardContent = ({ children, className }) => <div className={`p-8 md:p-10 ${className}`}>{children}</div>;
+const Input = (props) => <input {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
+const Button = ({ children, ...props }) => <button {...props} className={`px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-lg font-semibold shadow-md transition-all w-full ${props.className || ''}`}>{children}</button>;
+const Calendar = ({ selected, onSelect, className }) => <input type='date' value={selected.toISOString().split('T')[0]} onChange={(e) => onSelect(new Date(e.target.value))} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${className}`} />;
+const Textarea = (props) => <textarea {...props} className={`border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-pink-400 ${props.className || ''}`} />;
 
 export default function EventDecorBooking() {
   const [date, setDate] = useState(new Date());
@@ -60,36 +60,36 @@ export default function EventDecorBooking() {
   const eventList = Object.keys(pricing);
 
   return (
-    <motion.div className="min-h-screen bg-gradient-to-br from-pink-100 via-rose-50 to-yellow-100 p-8 max-w-3xl mx-auto space-y-8">
-      <div className="bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white">
-        <div className="flex flex-col items-center space-y-3">
-                    <h1 className="text-4xl font-extrabold text-pink-600 text-center tracking-tight">Golden Elephant Events</h1>
+    <motion.div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-100 to-yellow-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-xl rounded-[2rem] p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white">
+        <div className="text-center mb-10">
+          <h1 className="text-5xl font-extrabold text-pink-600 tracking-tight leading-tight">Golden Elephant Events</h1>
+          <p className="text-lg text-gray-700 mt-3">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
         </div>
-        <p className="text-center text-gray-700 mt-2">We specialize in Birthday Parties, Half Saree Functions, Weddings, Anniversaries & more!</p>
 
-        <Card className="mt-6 bg-white rounded-2xl shadow-xl">
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-bold text-rose-600">Book Your Appointment</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <Card>
+          <CardContent>
+            <h2 className="text-2xl font-bold text-rose-600 mb-6">Book Your Appointment</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <Input name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
               <Input name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <Input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} required />
-              <select name="eventType" value={form.eventType} onChange={handleChange} required className="w-full border p-2 rounded-md">
+              <select name="eventType" value={form.eventType} onChange={handleChange} required className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
                 <option value="">Select Event Type</option>
                 {eventList.map((event, index) => (
                   <option key={index} value={event}>{event}</option>
                 ))}
               </select>
-              <Calendar selected={date} onSelect={setDate} className="border rounded-xl" />
+              <Calendar selected={date} onSelect={setDate} />
               <Textarea name="notes" placeholder="Additional Notes" value={form.notes} onChange={handleChange} />
-              <div className="text-lg font-semibold text-pink-700">Estimated Price: ${price}</div>
+              <div className="text-lg font-bold text-pink-700">Estimated Price: ${price}</div>
               <Button type="submit">Book Appointment</Button>
             </form>
           </CardContent>
         </Card>
 
-        <div className="text-center space-y-2 mt-8">
-          <h3 className="text-lg font-semibold text-rose-500">Payment & Contact Information</h3>
+        <div className="text-center space-y-3 mt-12">
+          <h3 className="text-xl font-semibold text-rose-500">Payment & Contact Information</h3>
           <p className="text-gray-600">For bookings and payment instructions, please contact us directly:</p>
           <p className="text-pink-700 font-medium">Richmond & Northern Virginia: (804) 244-6947</p>
           <p className="text-pink-700 font-medium">Florida: (305) 555-5678</p>
